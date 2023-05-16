@@ -1,0 +1,53 @@
+JFDML JFormDesigner: "8.0.4.0.266" Java: "17.0.6" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "hidemode 3"
+			"$columnConstraints": "[fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[][][][][][][][][][]"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "searchData"
+				"toolTipText": "Points can not be searched for."
+				addEvent( new FormEvent( "java.awt.event.KeyListener", "keyReleased", "searchDataKeyReleased", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 1 5 1"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTable" ) {
+					name: "dataTable"
+				} )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 2 5 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "okBtn"
+				"text": "OK test"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "okBtnMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 5 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "delRow"
+				"text": "Delete Selected Row"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "delRowMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 4 5 1"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "newComp"
+				"text": "Add New Competitor"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "newCompMouseClicked", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 0 5 5 1"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 50, 20 )
+			"size": new java.awt.Dimension( 470, 330 )
+		} )
+	}
+}
