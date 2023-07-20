@@ -12,8 +12,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-
 import net.miginfocom.swing.*;
+
 
 /**
  * @author koron
@@ -47,7 +47,7 @@ public class App extends JFrame {
         }
         try{
             Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","java","7M7udObER.a-TFy6");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","vizsga","rX7KNBz-wwZTP9*9");
             Statement stmt = conn.createStatement();
             stmt.executeUpdate("DELETE FROM versenyzo WHERE nev = '"+rowData[0]+"' AND szakmaId IN (SELECT id FROM szakma WHERE szakmaNev = '"+rowData[1]+"') AND orszagId IN (SELECT id FROM orszag WHERE orszagNev = '"+rowData[2]+"') AND pont = "+rowData[3]);
             //System.out.println("Törölve cigo");
@@ -67,7 +67,7 @@ public class App extends JFrame {
             try{
                 DefaultTableModel table = (DefaultTableModel) dataTable.getModel();
                 Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","java","7M7udObER.a-TFy6");
+                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","vizsga","rX7KNBz-wwZTP9*9");
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM versenyzo INNER JOIN szakma ON versenyzo.szakmaId = szakma.id INNER JOIN orszag ON versenyzo.orszagId = orszag.id WHERE nev LIKE '%"+searchData.getText()+"%' OR szakma.szakmaNev LIKE '%"+searchData.getText()+"%' OR orszag.orszagNev LIKE '%"+searchData.getText()+"%'");
                 String[] result = new String[5];
@@ -213,7 +213,7 @@ public class App extends JFrame {
     public void getTableData() {
         try{
             Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","java","7M7udObER.a-TFy6");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","vizsga","rX7KNBz-wwZTP9*9");
             Statement stmt = conn.createStatement(); //create a statement object, that gets passed to the sql.
             DefaultTableModel table = (DefaultTableModel) dataTable.getModel(); //get table model and write the query you want below.
             ResultSet rs = stmt.executeQuery("SELECT * FROM versenyzo INNER JOIN szakma ON versenyzo.szakmaId = szakma.id INNER JOIN orszag ON versenyzo.orszagId = orszag.id ORDER BY szakma.szakmaNev, nev");

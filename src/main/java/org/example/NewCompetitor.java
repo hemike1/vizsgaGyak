@@ -36,7 +36,7 @@ public class NewCompetitor extends JFrame {
             String country = countryCombo.getSelectedItem().toString();
             String points = tfPoints.getText().toString();
             Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8", "java", "7M7udObER.a-TFy6");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","java","7M7udObER.a-TFy6");
             Statement stmt = conn.createStatement();
             stmt.addBatch("SET @orszagIdF = (SELECT id FROM orszag WHERE orszagNev = '"+country+"');");
             stmt.addBatch("SET @szakmaIdF = (SELECT id FROM szakma WHERE szakmaNev = '"+tech+"');");
@@ -149,7 +149,7 @@ public class NewCompetitor extends JFrame {
     private void getCountries(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8", "java", "7M7udObER.a-TFy6");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","vizsga","rX7KNBz-wwZTP9*9");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT orszagNev FROM orszag");
             while(rs.next()){
@@ -164,7 +164,7 @@ public class NewCompetitor extends JFrame {
     private void getTechs(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver"); //set sql driver for java then create the connection below.
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8", "java", "7M7udObER.a-TFy6");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vizsga_szakma?serverTimezone=UTC&useUnicode=yes&characterEncoding=UTF-8","vizsga","rX7KNBz-wwZTP9*9");
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT szakmaNev FROM szakma");
             while(rs.next()){
